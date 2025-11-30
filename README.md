@@ -1,8 +1,8 @@
 # voice_engine
 
-Always-listening audio pipeline for the Roomba voice stack. Runs on a Raspberry Pi, captures PCM from the Jabra speakerphone, performs VAD + keyword/STT inference, and POSTs canonical JSON (`voice.speaker`, `voice.transcript`) to the Roomba gateway (`http://127.0.0.1:8765/`).
+Always-listening audio pipeline for the Roomba voice stack. Runs on a Raspberry Pi, captures PCM from the Jabra speakerphone, performs Voice Activity Detection (VAD) + keyword/Speech-To-Text (STT) inference, and POSTs canonical JSON (`voice.speaker`, `voice.transcript`) to the Roomba gateway (`http://127.0.0.1:8765/`).
 
-## MVP Scope
+## Minimal Viable Product (MVP) Scope
 - Capture thread (ALSA/PortAudio) → bounded `q_frames`
 - VAD worker → `q_segments`
 - Inference worker → `q_posts` (emit `voice.transcript` first; speaker-ID later)
