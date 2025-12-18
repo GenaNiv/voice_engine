@@ -1,0 +1,31 @@
+audio:
+  device_name: "Jabra"
+  rate_hz: 16000
+  frame_ms: 20
+  chunk_frames: 10
+  sample_width: 2
+  channels: 1
+
+vad:
+  energy_thresh_db: -30.0
+  min_speech_ms: 300
+  max_speech_ms: 3000
+  hangover_ms: 200
+
+asr:
+  mode: "vosk"
+  model_path: "models/vosk-model-small-en-us-0.15"
+  min_confidence: 0.6
+
+gateway:
+  url: "http://127.0.0.1:8765/"
+  timeout_ms: 200
+  backoff_ms: [200, 500, 1000, 2000]
+
+queues:
+  frames: 256
+  segments: 32
+  posts: 64
+
+logging:
+  level: "DEBUG"

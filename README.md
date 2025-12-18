@@ -17,3 +17,13 @@ Always-listening audio pipeline for the Roomba voice stack. Runs on a Raspberry 
 5. ROOMB-18/19: config/logging + systemd unit
 
 Speaker recognition integration will reuse the existing models repo and be layered on once transcript POSTs are solid.
+
+## Run
+```bash
+python -m voice_engine --config config/voice_engine.example.yaml
+```
+Before running on the Pi:
+1. Configure audio defaults: `tools/audio_jabra_default.sh`
+2. Download a Vosk model (e.g., `vosk-model-small-en-us-0.15`) and point `asr.model_path` to it in the YAML config.
+
+Set `asr.mode` to `vosk` for full STT or `stub` to disable transcription during early bring-up. The inference worker now publishes real transcripts (subject to the configured `min_confidence`) to the HTTP worker queue.

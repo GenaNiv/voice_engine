@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voice-engine"
+version = "0.1.0"
+description = "Always-listening audio pipeline for local voice commands"
+authors = [{ name = "Gena", email = "gena@example.com" }]
+requires-python = ">=3.11"
+dependencies = [
+    "vosk>=0.3.45",
+    "PyYAML>=6.0",
+    "numpy>=1.26",
+    "sounddevice>=0.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+    "vosk",
+    "sounddevice",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.venv]
+path = ".venv"
+
+[tool.ruff]
+line-length = 100

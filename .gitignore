@@ -1,6 +1,14 @@
 __pycache__/
 *.pyc
+.vscode/
+.idea/
 .env
 .venv/
 .envrc
 .DS_Store
+models/
+models/**
+data/
+dist/
+build/
+*.log
